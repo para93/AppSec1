@@ -11,6 +11,7 @@ resource "aws_security_group" "mywebsecurity" {
     to_port     = 80
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
+    security_groups = ["${aws_security_group.mywebsecurity.id}"]
   }
   ingress {
     description = "SSH"
@@ -18,6 +19,7 @@ resource "aws_security_group" "mywebsecurity" {
     to_port     = 22
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
+    security_groups = ["${aws_security_group.mywebsecurity.id}"]
   }
   ingress {
     description = "ALL ICMP - IPv4"
@@ -25,6 +27,7 @@ resource "aws_security_group" "mywebsecurity" {
     to_port     = -1
     protocol    = "ICMP"
     cidr_blocks = ["0.0.0.0/0"]
+    security_groups = ["${aws_security_group.mywebsecurity.id}"]
   }
 
 
