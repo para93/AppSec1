@@ -18,7 +18,7 @@ resource "aws_instance" "mysql" {
   subnet_id = aws_subnet.private.id
   vpc_security_group_ids = ["${aws_security_group.mysqlsecurity.id}"]
   key_name = "mchung-dell-pem"
-  availability_zone = "us-east-2"
+  availability_zone = "us-east-2a"
 
 
  tags = {
